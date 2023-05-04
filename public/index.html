@@ -15,6 +15,17 @@
 
   <div id="resultado"></div>
 
+  <!--En otra seccion del sitio que pida el mensaje incriptado y la clave para desincriptar-->
+  <form id="formularioDes" method="POST">
+    <label for="mensajeDes">Mensaje cifrado:</label>
+    <input type="text" id="mensajeDes" name="mensajeDes">
+    <label for="claveDes">Clave:</label>
+    <input type="password" id="claveDes" name="claveDes">
+    <button type="submit">Descifrar</button>
+  </form>
+
+  <div id="resultadoDes"></div>
+
   <script>
     const formulario = document.getElementById('formulario');
     const mensaje = document.getElementById('mensaje');
@@ -39,6 +50,32 @@
         })
         .catch(error => {
           resultado.textContent = `Error: ${error}`;
+        });
+    });
+
+    const formularioDes = document.getElementById('formularioDes');
+    const mensajeDes = document.getElementById('mensajeDes');
+    const claveDes = document.getElementById('claveDes');
+    const resultadoDes = document.getElementById('resultadoDes');
+
+    formularioDes.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const data = {
+        mensaje: mensajeDes.value,
+        clave: claveDes.value.toString()
+      };
+
+      await fetch('/.netlify/functions/descifrado-xor', {
+        method: 'POST',
+        body: JSON.stringify(data)
+      })
+        .then(response => response.text())
+        .then(mensajeDescifrado => {
+          resultadoDes.textContent = `Mensaje descifrado: ${mensajeDescifrado}`;
+        })
+        .catch(error => {
+          resultadoDes.textContent = `Error: ${error}`;
         });
     });
   </script>
