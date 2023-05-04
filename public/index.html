@@ -1,25 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jamstack Explorers - Up and Running with Serverless Functions</title>
-  </head>
-  <body>
-    <h1>Up and Running with Serverless Functions</h1>
-    <button id="fetch-btn">Fetch</button>
-    <p id="response-output">Response Placeholder</p>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de cifrado</title>
+</head>
+<body>
+  <form id="formulario" method="POST">
+    <label for="mensaje">Mensaje:</label>
+    <input type="text" id="mensaje" name="mensaje">
+    <label for="clave">Clave:</label>
+    <input type="password" id="clave" name="clave">
+    <button type="submit">Cifrar</button>
+  </form>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const fetchBtn = document.getElementById('fetch-btn')
-        const responseText = document.getElementById('response-output')
+  <div id="resultado"></div>
 
-        fetchBtn.addEventListener('click', () => {
-          responseText.innerText = 'Static Text Replacement'
-        })
+  <script>
+    const formulario = document.getElementById('formulario');
+    const mensaje = document.getElementById('mensaje');
+    const clave = document.getElementById('clave');
+    const resultado = document.getElementById('resultado');
+
+    formulario.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const data = {
+        mensaje: mensaje.value,
+        clave: clave.value.toString()
+      };
+
+      await fetch('/.netlify/functions/cifrado-xor', {
+        method: 'POST',
+        body: JSON.stringify(data)
       })
-    </script>
-  </body>
+        .then(response => response.text())
+        .then(mensajeCifrado => {
+          resultado.textContent = `Mensaje cifrado: ${mensajeCifrado}`;
+        })
+        .catch(error => {
+          resultado.textContent = `Error: ${error}`;
+        });
+    });
+  </script>
+</body>
 </html>
