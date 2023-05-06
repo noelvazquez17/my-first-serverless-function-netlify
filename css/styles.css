@@ -1,0 +1,55 @@
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 16px;/*1 rem = 10px*/
+    font-family: 'Montserrat', sans-serif;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.space{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.subt{
+    padding-left: 10%;
+}
+.distribucion{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.btn{
+    width: 10rem;
+    height: 2.5rem;
+    background-color:blue;
+    border-radius: .5rem;
+    border-color: blue;
+    color: white;
+}
+
+.zone{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.txta{
+    width: 30rem;
+    height: 15rem;
+    border-radius: .5rem;
+    border-color: grey;
+}
+
+.clave{
+    width: 110%;
+    height: 3rem;
+    border-radius: .5rem;
+    border-color: grey;
+}
+
