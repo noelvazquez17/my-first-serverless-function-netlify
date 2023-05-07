@@ -11,17 +11,24 @@
 </head>
 
 <body>
-  <header class="hdr">
+  <header>
     <h1 class="c-2">Cifrado XOR</h1>
+    <p class="par">Segundo proyecto de la materia Servicios Cloud. <br>
+      El propósito es recibir un mensaje en texto y encriptarlo mediante algún método simétrico.<br>
+      Regresar el mensaje encriptado adecuadamente.<br>
+      El cliente puede comprobar desencriptando el mensaje conociendo la clave<br>
+      de encriptamiento por medio de un programa en el cliente.<br>
+    </p>
   </header>
   
-  <h2>Cifrado</h2>
-  <div class=" center contairner space">
+<div class="container">
+  <h2 class="c-2">Cifrado</h2>
+  <div class=" center space">
     <section>
       <form id="formulario" method="POST">
         <section class="space distribucion">
           <p>Mensaje</p>
-          <textarea type="text" name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Ingresar mensaje"></textarea>
+          <textarea type="text" name="mensaje" id="mensaje" cols="55" rows="10" placeholder="Ingresar mensaje"></textarea>
         </section>
         <div class="clav">
           <label for="clave">Clave:</label>
@@ -32,18 +39,20 @@
     </section>
     <section class="space distribucion">
       <p>Mensaje cifrado</p>
-      <textarea name="" id="resultado" cols="30" rows="10" placeholder="Mensaje cifrado."></textarea>
+      <textarea name="" id="resultado" cols="55" rows="10" placeholder="Mensaje cifrado."></textarea>
     </section>
   </div>
+</div>
   
-  <h2>Descifrado</h2>
+<div class="container clav">
+  <h2 class="c-2"> Descifrado</h2>
   <!--En otra seccion del sitio que pida el mensaje incriptado y la clave para desincriptar-->
-  <div class=" center contairner space">
+  <div class=" center space dw">
     <section>
       <form id="formularioDes" method="POST">
         <section class="space distribucion">
           <p>Mensaje cifrado</p>
-          <textarea type="text" name="mensajeDes" id="mensajeDes" cols="30" rows="10" placeholder="Ingresar mensaje cifrado"></textarea>
+          <textarea type="text" name="mensajeDes" id="mensajeDes" cols="55" rows="10" placeholder="Ingresar mensaje cifrado"></textarea>
         </section>
         <div class="clav">
           <label for="claveDes">Clave:</label>
@@ -54,9 +63,11 @@
     </section>
     <section class="space distribucion">
       <p>Mensaje descifrado</p>
-      <textarea name="" id="resultadoDes" cols="30" rows="10" placeholder="Mensaje descifrado."></textarea>
+      <textarea name="" id="resultadoDes" cols="55" rows="10" placeholder="Mensaje descifrado."></textarea>
     </section>
   </div>
+</div>
+  
 
   <script>
     const formulario = document.getElementById('formulario');
@@ -113,9 +124,11 @@
   </script>
 
   <footer class="foot">
-    <p class="name center">Ivan Aldair Castillo Gutierrez <span class="prof">Estudiante</span></p>
+    
+    <p class="name center clav">Ivan Aldair Castillo Gutierrez <span class="prof">Estudiante</span></p>
     <p class="name center">Noel Vazquez Trujillo <span class="prof">Estudiante</span></p>
     <p class="name center">Alan Daniel Hernandez Villalobos <span class="prof">Estudiante</span></p>
+    
   </footer>
 </body>
 

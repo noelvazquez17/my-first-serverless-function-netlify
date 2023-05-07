@@ -1,14 +1,16 @@
 html{
     font-size: 62.5%;
+    
 }
 body{
     font-size: 16px;/*1 rem = 10px*/
     font-family: 'Montserrat', sans-serif;
+    position: relative;
+    padding-bottom: 3rem;
+    min-height: 100vh;
 }
 
 .hdr{
-    height: 100px;
-    width: 100%;
     position:relative;
     padding: 0;
     background-color: blue;
@@ -17,8 +19,12 @@ body{
 }
 
 .container{
-    height: 100%;
-    width: 100%;
+    padding-top: 3rem;
+    height: 38rem;
+    width: 60%;
+    margin-left: 22%;
+    background-color: rgb(9, 164, 175);
+    border-radius: 5rem;
 }
 
 .center{
@@ -27,9 +33,7 @@ body{
 }
 
 .c-2{
-    display: flex;
-    justify-content: center;
-    align-items:center;
+    text-align: center;
 }
 
 .space{
@@ -56,17 +60,9 @@ body{
     margin-top: 3rem;
 }
 
-.top{
-    display: flex;
-    align-items: flex-start;
-}
-
 .foot{
-    height: 100px;
-    width: 100%;
-    position: relative;
-    padding: 0;
-    background-color: blue;
+    text-align: start;
+    bottom: 0%;
 }
 
 .name{
@@ -75,5 +71,13 @@ body{
 }
 
 .prof{
-    font-size: 1.5rem;
+    font-size: 1rem;
+}
+
+.dw{
+    margin-bottom: 15rem;
+}
+
+.par{
+    margin-left: 22%;
 }
