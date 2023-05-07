@@ -6,22 +6,41 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 
+.hdr{
+    height: 100px;
+    width: 100%;
+    position:relative;
+    padding: 0;
+    background-color: blue;
+    background-size: cover;
+    
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+}
+
 .center{
     display: flex;
     justify-content: center;
 }
 
-.space{
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+.c-2{
+    display: flex;
+    justify-content: center;
+    align-items:center;
 }
 
-.subt{
-    padding-left: 10%;
+.space{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
 }
+
 .distribucion{
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction: column; 
 }
 
 .btn{
@@ -33,23 +52,28 @@ body{
     color: white;
 }
 
-.zone{
+.clav{
+    margin-top: 3rem;
+}
+
+.top{
     display: flex;
-    justify-content: space-around;
-    
+    align-items: flex-start;
 }
 
-.txta{
-    width: 30rem;
-    height: 15rem;
-    border-radius: .5rem;
-    border-color: grey;
+.foot{
+    height: 100px;
+    width: 100%;
+    position: relative;
+    padding: 0;
+    background-color: blue;
 }
 
-.clave{
-    width: 110%;
-    height: 3rem;
-    border-radius: .5rem;
-    border-color: grey;
+.name{
+    font-size: 2.5rem;
+    margin-bottom: -2rem;
 }
 
+.prof{
+    font-size: 1.5rem;
+}

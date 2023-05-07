@@ -11,29 +11,52 @@
 </head>
 
 <body>
-  <h1 class="center">Cifrado con XOR</h1>
+  <header class="hdr">
+    <h1 class="c-2">Cifrado XOR</h1>
+  </header>
+  
   <h2>Cifrado</h2>
-  <form id="formulario" method="POST" class="">
-    <label for="mensaje">Mensaje:</label>
-    <textarea type="text" name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Ingresar mensaje"></textarea>
-    <label for="clave">Clave:</label>
-    <input type="password" id="clave" name="clave">
-    <button type="submit" class="btn">Cifrar</button>
-  </form>
-  <p>Mensaje cifrado</p>
-  <textarea name="" id="resultado" cols="30" rows="10" placeholder="Mensaje cifrado."></textarea>
-
+  <div class=" center contairner space">
+    <section>
+      <form id="formulario" method="POST">
+        <section class="space distribucion">
+          <p>Mensaje</p>
+          <textarea type="text" name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Ingresar mensaje"></textarea>
+        </section>
+        <div class="clav">
+          <label for="clave">Clave:</label>
+          <input type="password" id="clave" name="clave">
+          <button type="submit" class="btn">Cifrar</button>
+        </div>
+      </form>
+    </section>
+    <section class="space distribucion">
+      <p>Mensaje cifrado</p>
+      <textarea name="" id="resultado" cols="30" rows="10" placeholder="Mensaje cifrado."></textarea>
+    </section>
+  </div>
+  
   <h2>Descifrado</h2>
   <!--En otra seccion del sitio que pida el mensaje incriptado y la clave para desincriptar-->
-  <form id="formularioDes" method="POST">
-    <label for="mensajeDes">Mensaje cifrado:</label>
-    <textarea type="text" name="mensajeDes" id="mensajeDes" cols="30" rows="10" placeholder="Ingresar mensaje"></textarea>
-    <label for="claveDes">Clave:</label>
-    <input type="password" id="claveDes" name="claveDes">
-    <button type="submit" class="btn">Descifrar</button>
-  </form>
-  <p>Mensaje descifrado</p>
-  <textarea name="" id="resultadoDes" cols="30" rows="10" placeholder="Mensaje descifrado."></textarea>
+  <div class=" center contairner space">
+    <section>
+      <form id="formularioDes" method="POST">
+        <section class="space distribucion">
+          <p>Mensaje cifrado</p>
+          <textarea type="text" name="mensajeDes" id="mensajeDes" cols="30" rows="10" placeholder="Ingresar mensaje cifrado"></textarea>
+        </section>
+        <div class="clav">
+          <label for="claveDes">Clave:</label>
+          <input type="password" id="claveDes" name="claveDes">
+          <button type="submit" class="btn">Descifrar</button>
+        </div>
+      </form>
+    </section>
+    <section class="space distribucion">
+      <p>Mensaje descifrado</p>
+      <textarea name="" id="resultadoDes" cols="30" rows="10" placeholder="Mensaje descifrado."></textarea>
+    </section>
+  </div>
 
   <script>
     const formulario = document.getElementById('formulario');
@@ -88,6 +111,12 @@
         });
     });
   </script>
+
+  <footer class="foot">
+    <p class="name center">Ivan Aldair Castillo Gutierrez <span class="prof">Estudiante</span></p>
+    <p class="name center">Noel Vazquez Trujillo <span class="prof">Estudiante</span></p>
+    <p class="name center">Alan Daniel Hernandez Villalobos <span class="prof">Estudiante</span></p>
+  </footer>
 </body>
 
 </html>
