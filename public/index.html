@@ -2,134 +2,290 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>Formulario de cifrado</title>
-  <link rel="stylesheet" href="./css/styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <title>Formulario de cifrado</title>
+    <style>
+        body {
+            background-color: #302f2f;
+        }
+        #page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 7rem;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        #h3 {
+            color: white;
+        }
+
+        #ring {
+            width: 190px;
+            height: 190px;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        #ring:nth-child(1) {
+            border-bottom: 8px solid rgb(255, 141, 249);
+            animation: rotate1 2s linear infinite;
+        }
+
+        @keyframes rotate1 {
+            from {
+                transform: rotateX(50deg) rotateZ(110deg);
+            }
+
+            to {
+                transform: rotateX(50deg) rotateZ(470deg);
+            }
+        }
+
+        #ring:nth-child(2) {
+            border-bottom: 8px solid rgb(255, 65, 106);
+            animation: rotate2 2s linear infinite;
+        }
+
+        @keyframes rotate2 {
+            from {
+                transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
+            }
+
+            to {
+                transform: rotateX(20deg) rotateY(50deg) rotateZ(380deg);
+            }
+        }
+
+        #ring:nth-child(3) {
+            border-bottom: 8px solid rgb(0, 255, 255);
+            animation: rotate3 2s linear infinite;
+        }
+
+        @keyframes rotate3 {
+            from {
+                transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
+            }
+
+            to {
+                transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
+            }
+        }
+
+        #ring:nth-child(4) {
+            border-bottom: 8px solid rgb(252, 183, 55);
+            animation: rotate4 2s linear infinite;
+        }
+
+        @keyframes rotate4 {
+            from {
+                transform: rotateX(70deg) rotateZ(270deg);
+            }
+
+            to {
+                transform: rotateX(70deg) rotateZ(630deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <h1 class="c-2">Cifrado XOR</h1>
-    <p class="par">Segundo proyecto de la materia Servicios Cloud. <br>
-      El propósito es recibir un mensaje en texto y encriptarlo mediante algún método simétrico.<br>
-      Regresar el mensaje encriptado adecuadamente.<br>
-      El cliente puede comprobar desencriptando el mensaje conociendo la clave<br>
-      de encriptamiento por medio de un programa en el cliente.<br>
-    </p>
-  </header>
-  
-<div class="container">
-  <h2 class="c-2">Cifrado</h2>
-  <div class=" center space">
-    <section>
-      <form id="formulario" method="POST">
-        <section class="space distribucion">
-          <p>Mensaje</p>
-          <textarea type="text" name="mensaje" id="mensaje" cols="55" rows="10" placeholder="Ingresar mensaje"></textarea>
-        </section>
-        <div class="clav">
-          <label for="clave">Clave:</label>
-          <input type="password" id="clave" name="clave">
-          <button type="submit" class="btn">Cifrar</button>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top mb-5" style="background-color: #0A4D68;">
+            <div class="container">
+                <a class="navbar-brand" href="#">Cifrado XOR</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#section1">Encriptar</a>
+                        <a class="nav-link" href="#section2">Desencriptar</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="page">
+        <div id="container">
+            <div id="ring"></div>
+            <div id="ring"></div>
+            <div id="ring"></div>
+            <div id="ring"></div>
+            <div id="h3">Cifrado XOR</div>
+
         </div>
-      </form>
-    </section>
-    <section class="space distribucion">
-      <p>Mensaje cifrado</p>
-      <textarea name="" id="resultado" cols="55" rows="10" placeholder="Mensaje cifrado."></textarea>
-    </section>
-  </div>
-</div>
-  
-<div class="container clav">
-  <h2 class="c-2"> Descifrado</h2>
-  <!--En otra seccion del sitio que pida el mensaje incriptado y la clave para desincriptar-->
-  <div class=" center space dw">
-    <section>
-      <form id="formularioDes" method="POST">
-        <section class="space distribucion">
-          <p>Mensaje cifrado</p>
-          <textarea type="text" name="mensajeDes" id="mensajeDes" cols="55" rows="10" placeholder="Ingresar mensaje cifrado"></textarea>
-        </section>
-        <div class="clav">
-          <label for="claveDes">Clave:</label>
-          <input type="password" id="claveDes" name="claveDes">
-          <button type="submit" class="btn">Descifrar</button>
+    </div>
+    <div class="container" id="section1">
+        <div class="row">
+            <div class="col-12">
+            </div>
         </div>
-      </form>
-    </section>
-    <section class="space distribucion">
-      <p>Mensaje descifrado</p>
-      <textarea name="" id="resultadoDes" cols="55" rows="10" placeholder="Mensaje descifrado."></textarea>
-    </section>
-  </div>
-</div>
-  
+    </div>
+    <div class="container text-white rounded pt-3 pb-3 px-3" style="background-color: #088395; margin-top: 5rem;">
+        <div class="row">
+            <div class="col-12 text-center mt-2">
+                <h4>Encriptar</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <form id="formulario" method="POST">
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Mensaje:</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="10"></textarea>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-9">
+                            <label for="clave">Clave:</label>
+                            <input type="password" class="form-control" id="clave" name="clave">
+                        </div>
+                        <div class="col-3">
+                            <!--que el boton abarque el 100% del ancho asignado-->
+                            <button type="submit" class="btn btn-info w-100 mt-4" ;">Cifrar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="resultado" class="form-label">Mensaje cifrado:</label>
+                    <textarea class="form-control" id="resultado" name="resultado" rows="10" readonly></textarea>
+                </div>
 
-  <script>
-    const formulario = document.getElementById('formulario');
-    const mensaje = document.getElementById('mensaje');
-    const clave = document.getElementById('clave');
-    const resultado = document.getElementById('resultado');
+            </div>
+        </div>
+    </div>
 
-    formulario.addEventListener('submit', async (event) => {
-      event.preventDefault();
+    <!--Tener un divisor entre un formulario y otro-->
+    <div class="container pt-3 pb-3" id="section2">
+        <div class="row">
+            <div class="col-12">
+                <hr class="border-primary border-2">
+            </div>
+        </div>
+    </div>
 
-      const data = {
-        mensaje: mensaje.value,
-        clave: clave.value.toString()
-      };
+    <!--Formulario para descifrar-->
+    <div class="container rounded text-white mb-5 pt-3 pb-3 px-3" style="background-color: rgb(9, 164, 175)">
+        <div class="row">
+            <div class="col-12 text-center mt-2">
+                <h4>Desencriptar</h4>
+            </div>
+        </div>
 
-      await fetch('/.netlify/functions/cifrado-xor', {
-        method: 'POST',
-        body: JSON.stringify(data)
-      })
-        .then(response => response.text())
-        .then(mensajeCifrado => {
-          resultado.textContent = ` ${mensajeCifrado}`;
-        })
-        .catch(error => {
-          resultado.textContent = `Error: ${error}`;
+        <div class="row">
+            <div class="col-6">
+                <form id="formularioDes" method="POST">
+                    <div class="mb-3">
+                        <label for="mensajeDes" class="form-label">Mensaje cifrado:</label>
+                        <textarea class="form-control" id="mensajeDes" name="mensajeDes" rows="10"></textarea>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-9">
+                            <label for="claveDes">Clave:</label>
+                            <input type="password" class="form-control" id="claveDes" name="claveDes">
+                        </div>
+                        <div class="col-3">
+                            <button type="submit" class="btn btn-primary w-100 mt-4">Descifrar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="resultadoDes" class="form-label">Mensaje descifrado:</label>
+                    <textarea class="form-control" id="resultadoDes" name="resultadoDes" rows="10" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer acerca de nosotros que aparezcan los nombres Noel Vazquez Trujillo, Ivan Aldair Castillo Gutierrez, Alan Daniel Hernandez Villalobos-->
+    <footer class="text-center text-white" style="background-color: #0A4D68;">
+        <div class="container p-4">
+            <section class="mb-4">
+                <p>
+                <h3>Equipo 2</h3>
+                <a class="text-white">Noel Vazquez Trujillo</a>
+                <br>
+                <a class="text-white">Ivan Aldair Castillo Gutierrez</a>
+                <br>
+                <a class="text-white">Alan Daniel Hernandez Villalobos</a>
+                </p>
+            </section>
+        </div>
+    </footer>
+
+    <script>
+        const formulario = document.getElementById('formulario');
+        const mensaje = document.getElementById('mensaje');
+        const clave = document.getElementById('clave');
+        const resultado = document.getElementById('resultado');
+
+        formulario.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const data = {
+                mensaje: mensaje.value,
+                clave: clave.value.toString()
+            };
+
+            await fetch('/.netlify/functions/cifrado-xor', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            })
+                .then(response => response.text())
+                .then(mensajeCifrado => {
+                    resultado.textContent = `${mensajeCifrado}`;
+                })
+                .catch(error => {
+                    resultado.textContent = `Error: ${error}`;
+                });
         });
-    });
 
-    const formularioDes = document.getElementById('formularioDes');
-    const mensajeDes = document.getElementById('mensajeDes');
-    const claveDes = document.getElementById('claveDes');
-    const resultadoDes = document.getElementById('resultadoDes');
+        const formularioDes = document.getElementById('formularioDes');
+        const mensajeDes = document.getElementById('mensajeDes');
+        const claveDes = document.getElementById('claveDes');
+        const resultadoDes = document.getElementById('resultadoDes');
 
-    formularioDes.addEventListener('submit', async (event) => {
-      event.preventDefault();
+        formularioDes.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-      const data = {
-        mensaje: mensajeDes.value,
-        clave: claveDes.value.toString()
-      };
+            const data = {
+                mensaje: mensajeDes.value,
+                clave: claveDes.value.toString()
+            };
 
-      await fetch('/.netlify/functions/descifrado-xor', {
-        method: 'POST',
-        body: JSON.stringify(data)
-      })
-        .then(response => response.text())
-        .then(mensajeDescifrado => {
-          resultadoDes.textContent = ` ${mensajeDescifrado}`;
-        })
-        .catch(error => {
-          resultadoDes.textContent = `Error: ${error}`;
+            await fetch('/.netlify/functions/descifrado-xor', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            })
+                .then(response => response.text())
+                .then(mensajeDescifrado => {
+                    resultadoDes.textContent = `${mensajeDescifrado}`;
+                })
+                .catch(error => {
+                    resultadoDes.textContent = `Error: ${error}`;
+                });
         });
-    });
-  </script>
-
-  <footer class="foot">
-    
-    <p class="name center clav">Ivan Aldair Castillo Gutierrez <span class="prof">Estudiante</span></p>
-    <p class="name center">Noel Vazquez Trujillo <span class="prof">Estudiante</span></p>
-    <p class="name center">Alan Daniel Hernandez Villalobos <span class="prof">Estudiante</span></p>
-    
-  </footer>
+    </script>
 </body>
 
 </html>
